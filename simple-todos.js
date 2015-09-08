@@ -86,12 +86,14 @@ Meteor.methods({
     }
 
 
-// Need username to be username and profile.name for Facebook integration because the name in facebook is displayed as such
+// Need username to be username and profile.name for Facebook integration 
+// because the name in facebook is displayed as such
     Tasks.insert({
-      text: text,
+      text: theext,
       createdAt: new Date(),
       owner: Meteor.userId(),
-      username: Meteor.user().username || Meteor.user().profile.name
+      username: Meteor.user().username || Meteor.user().profile.name,
+      avatar: Meteor.user().profile.picture
     });
   },
   deleteTask: function (taskId) {
